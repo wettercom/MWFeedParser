@@ -10,6 +10,7 @@ MWFeedParser is an Objective-C framework for downloading and parsing RSS (1.* an
 #### Feed Items
 - Title
 - Link
+- Author name
 - Date (the date the item was published)
 - Updated date  (the date the item was updated, if available)
 - Summary (brief description of item)
@@ -105,6 +106,7 @@ Here is a list of the available properties for feed info and item objects:
 
 - `item.title` (`NSString`)
 - `item.link` (`NSString`)
+- `item.author` (`NSString`)
 - `item.date` (`NSDate`)
 - `item.updated` (`NSDate`)
 - `item.summary` (`NSString`)
@@ -164,6 +166,20 @@ MWFeedParser is not currently thread-safe.
 
 ## Adding to your project
 
+### Method 1: Use CocoaPods
+
+[CocoaPods](http://cocoapods.org) is great. If you are using CocoaPods ([and here's how to get started](http://guides.cocoapods.org/using/using-cocoapods.html)), simply add `pod 'MWFeedParser'` to your podfile and run `pod install`. You're good to go! Here's an example podfile:
+
+```
+platform :ios, '7'
+    pod 'MWFeedParser'
+```
+
+If you are just interested in using the HTML and/or InternetDateTime categories in your app, you can just specify those in your podfile with `pod 'MWFeedParser/NSString+HTML'` or `pod 'MWFeedParser/NSDate+InternetDateTime'`.
+
+
+### Method 2: Including Source Directly Into Your Project
+
 1. Open `MWFeedParser.xcodeproj`.
 2. Drag the `MWFeedParser` & `Categories` groups into your project, ensuring you check **Copy items into destination group's folder**.
 3. Import `MWFeedParser.h` into your source as required.
@@ -206,10 +222,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-
-Contact
-===============
-
-Website: 	<http://michaelwaterfall.com>
-Twitter:	<http://twitter.com/mwaterfall>
