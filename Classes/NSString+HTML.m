@@ -35,8 +35,6 @@
 #pragma mark - Instance Methods
 
 - (NSString *)stringByConvertingHTMLToPlainText {
-    @autoreleasepool {
-        
         // Character sets
         NSCharacterSet *stopCharacters = [NSCharacterSet characterSetWithCharactersInString:[NSString stringWithFormat:@"< \t\n\r%C%C%C%C", (unichar)0x0085, (unichar)0x000C, (unichar)0x2028, (unichar)0x2029]];
         NSCharacterSet *newLineAndWhitespaceCharacters = [NSCharacterSet characterSetWithCharactersInString:[NSString stringWithFormat:@" \t\n\r%C%C%C%C", (unichar)0x0085, (unichar)0x000C, (unichar)0x2028, (unichar)0x2029]];
@@ -125,8 +123,6 @@
         
         // Return
         return retString;
-        
-    }
 }
 
 - (NSString *)stringByDecodingHTMLEntities {
@@ -146,8 +142,6 @@
 }
 
 - (NSString *)stringWithNewLinesAsBRs {
-    @autoreleasepool {
-        
         // Strange New lines:
         //	Next Line, U+0085
         //	Form Feed, U+000C
@@ -194,13 +188,9 @@
         
         // Return
         return retString;
-        
-    }
 }
 
 - (NSString *)stringByRemovingNewLinesAndWhitespace {
-    @autoreleasepool {
-        
         // Strange New lines:
         //	Next Line, U+0085
         //	Form Feed, U+000C
@@ -237,7 +227,6 @@
         
         // Return
         return retString;
-    }
 }
 
 - (NSString *)stringByLinkifyingURLs {
@@ -252,8 +241,6 @@
 }
 
 - (NSString *)stringByStrippingTags {
-    @autoreleasepool {
-        
         // Find first & and short-cut if we can
         NSUInteger ampIndex = [self rangeOfString:@"<" options:NSLiteralSearch].location;
         if (ampIndex == NSNotFound) {
@@ -314,9 +301,7 @@
         // Cleanup
         
         // Return
-        return finalString;
-        
-    }
+        return finalString;        
 }
 
 @end
